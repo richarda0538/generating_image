@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ImagiPicto</title>
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="static\vendor\boxicons\css\boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!--<link rel="stylesheet" type="text/css" href="D:\Project\Web Application\static\styles.css">-->
+  </head>
+  <body class="profile">
+    <div class="header__wrapper">
+        <header>
+        <div class="navbar">
+            <div>
+                 <a class="logo" href='/index2'>ImagiPicto</a>
+            </div>
+            <nav>
+                <ul id='MenuItems'>
+                    <li><a href='/home'>Home</a></li>
+                    <li><a href='/home'>Features</a></li>
+                    <li><a href='/profile'>Profile</a></li>
+                    <li><button class='loginbtn' onclick="window.location.href='/loginRegister'">Logout</button></li>
+                </ul>
+            </nav>
+        </div>
+        </header>
+        <div class="cols__container">
+            <div class="left__col">
+              <div class="img__container">
+                <img src="static\profile_image.png" alt="User" />
+                <span></span>
+              </div>
+              <h2>{{name}}</h2>
+              <p>{{email}}</p>
+              <br>
+              <a href="/delete-account" class="delete-account">Delete Account</a>
+            </div>
+
+            <div class="right__col">
+              <nav>
+                <ul>
+                  <li>Images Searched</li>
+                </ul>
+              </nav>
+
+              <div class="photos">
+                {% if img1 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img1 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id1}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img1 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img2 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img2 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id2}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img2 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img3 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img3 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id3}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img3 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img4 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img4 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id4}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img4 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img5 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img5 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id5}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img5 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img6 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img6 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id6}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img6 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img7 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img7 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id7}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img7 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img8 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img8 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id8}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img8 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img9 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img9 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id9}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img9 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img10 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img10 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id10}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img10 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img11 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img11 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id11}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img11 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img12 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img12 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id12}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img12 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img13 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img13 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id13}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img13 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img14 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img14 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id14}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img14 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img15 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img15 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id15}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img15 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img16 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img16 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id16}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img16 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img17 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img17 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id17}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img17 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img18 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img18 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id18}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img18 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img19 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img19 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id19}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img19 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img20 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img20 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id20}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img20 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img21 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img21 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id21}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img21 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img22 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img22 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id22}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img22 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img23 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img23 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id23}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img23}}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img24 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img24 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id24}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img24 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img25 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img25 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id25}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img25 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img25 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img25 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id25}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img25 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img27 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img27 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id27}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img27 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img28 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img28 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id28}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img28 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img29 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img29 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id29}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img29 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+                {% if img30 %}
+                <div class="edit">
+                  <img class="image" src="data:image/jpeg;base64,{{ img30 }}" alt="Photo"/>
+                  <div class="delet-download">
+                    <a onclick="deleteImage('{{id30}}');"><i class="fa fa-trash"></i></a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="data:image/jpeg;base64,{{ img30 }}" download><i class="bx bx-download"></i></a>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script>
+      function deleteImage(Id){
+        console.log(Id)
+        const request = new XMLHttpRequest()
+        request.open('POST', '/delete-image/'+Id)
+        request.send()
+      }
+    </script>
+    <footer id="footer">
+      <img class="logo1" src="static\logo.png" height="30%" width="30%">
+      <!--<div class="socialicon">
+        <a href="#"><img  src="static\fb_logo.png"></a>&nbsp;&nbsp;
+        <a href="#"><img  src="static\insta_logo.png"></a>&nbsp;&nbsp;
+        <a href="#"><img  src="static\twitter_logo.png"></a>
+      </div>-->
+      <div class="copyright">
+        Copyright 2023 ©. All Rights Reserved.
+      </div>
+    </footer>
+  </body>
+</html>
